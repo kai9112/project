@@ -5,12 +5,12 @@
         </mt-swipe>
         <!-- 九宫格 到 6宫格 的改造工程 -->
     <ul class="mui-table-view mui-grid-view mui-grid-9">
-      <li class="mui-table-view-cell mui-media mui-col-xs-4"><a href="#">
+      <li class="mui-table-view-cell mui-media mui-col-xs-4"><router-link to="/home/newsList">
               <img src="../images/menu1.png" alt="">
-              <div class="mui-media-body">新闻资讯</div></a></li>
-      <li class="mui-table-view-cell mui-media mui-col-xs-4"><a href="#">
+              <div class="mui-media-body">新闻资讯</div></router-link></li>
+      <li class="mui-table-view-cell mui-media mui-col-xs-4"><router-link to="/home/photoList">
               <img src="../images/menu2.png" alt="">
-              <div class="mui-media-body">图片分享</div></a></li>
+              <div class="mui-media-body">图片分享</div></router-link></li>
       <li class="mui-table-view-cell mui-media mui-col-xs-4"><a href="#">
               <img src="../images/menu3.png" alt="">
               <div class="mui-media-body">商品购买</div></a></li>
@@ -40,8 +40,9 @@
         },
         methods:{
             getlunbotu(){
-                this.$http.get("http://www.liulongbin.top:3005/api/getlunbo").then(res => {
+                this.$http.get("api/getlunbo").then(res => {
                     if(res.body.status === 0){
+                        
                         this.lunbotuList = res.body.message;
                     }else{
                         Toast("加载轮播图失败。。。")
